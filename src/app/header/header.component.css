@@ -1,15 +1,41 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  .mat-toolbar{
-    background: #A03037;
-    color: #fff;
-  }
-  .logo-content{
-    margin-left: 8%;
-  }
-  .cart{
-    margin-right: 8%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
-  }
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: #A03037;
+  color: #fff;
+}
+
+.logo-content {
+  margin-left: 8%;
+  margin-top: 8px;
+}
+
+.logo-txt {
+  font-size: 20px;
+  font: normal normal 20px/20px Roboto;
+
+}
+
+.cart {
+  margin-top: 8px;
+  margin-right: 8%;
+}
+
+.search-input {
+  top: 14px;
+  left: 334px;
+  width: 490px;
+  height: 33px;
+
+  background: #FCFCFC 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  opacity: 1;
+
+}
+
+.mat-badge-content {
+  background: white;
+  color: #A03037;
+}

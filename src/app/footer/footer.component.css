@@ -1,0 +1,9 @@
+.mat-toolbar{
+    margin-top: 40px;
+    background: #2E1D1E;
+    color: #fff;
+  }
+  .txt{
+    margin-left: 8%;
+    font: normal normal 12px Roboto;
+  }
