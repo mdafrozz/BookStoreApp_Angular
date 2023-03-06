@@ -11,15 +11,18 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatBadgeModule} from '@angular/material/badge';
+import { CartComponent } from './cart/cart.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+
+
  
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    CartComponent,
+    OrderSuccessComponent,
       
   ],
   imports: [
@@ -35,15 +40,14 @@ import {MatBadgeModule} from '@angular/material/badge';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatIconModule,
     MatToolbarModule,
-    MatFormFieldModule,
     MatCardModule,
-    MatMenuModule,
     MatButtonModule,
     MatSelectModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatStepperModule,
+    MatRadioModule
 
   ],
   providers: [],

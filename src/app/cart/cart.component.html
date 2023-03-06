@@ -1,0 +1,73 @@
+<app-header></app-header>
+<mat-stepper orientation="vertical" class="stepper" >
+
+    <mat-step >
+      <ng-template matStepLabel>My Cart (1)</ng-template>
+      <ng-template matStepContent>
+        <mat-card class="example-card">
+              <div class="card-content">
+                <img mat-card-image 
+                class="img" src="https://public-v2links.adobecc.com/f01e3875-2a95-4975-7ad1-9a60aa079aec/component?params=component_id%3A1b673db3-8b0b-4de3-9115-bff5b0147158&params=version%3A0&token=1677912906_da39a3ee_4b34bceb67cbcf6d55694164f4b3af6bb6292bd0&api_key=CometServer1">
+                <mat-card-title>Don't make me think</mat-card-title>
+                <mat-card-subtitle>by Steve King</mat-card-subtitle>
+                <mat-card-title>Rs. 1500</mat-card-title><br>
+                <div>
+                    <button mat-mini-fab style="background-color: #A03037; color: white; font-size: 25px;">-</button>&nbsp;
+                    <input matInput value="1" style="width:50px; height: 30px; text-align: center;">&nbsp;
+                    <button mat-mini-fab style="background-color: #A03037; color: white; font-size: 25px;">+</button>&nbsp;
+                    <button mat-button>Remove</button>
+                </div>
+            </div>
+            <mat-card-actions align="end">
+              <button mat-raised-button matStepperNext color="primary">PLACE ORDER</button>
+            </mat-card-actions>
+            </mat-card>
+      </ng-template>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Customer Details</ng-template>
+      <ng-template matStepContent>
+        <mat-card class="example-card">
+        <div class="card-content">
+        <input matInput value="Name" style="width:251px; height: 45px;">&nbsp; &nbsp;
+       <input matInput value="PhoneNumber" style="width:251px; height: 45px;"><br>
+       <input matInput value="Pincode" style="width:251px; height: 45px; margin-top: 10px;">&nbsp; &nbsp;
+       <input matInput value="Locality" style="width:251px; height: 45px; margin-top: 10px;"><br>
+       <textarea matInput placeholder="Address"style="width:525px; height: 82px; margin-top: 10px;"></textarea><br>
+       <input matInput value="City/Town" style="width:251px; height: 45px;">&nbsp; &nbsp;
+       <input matInput value="Landmark" style="width:251px; height: 45px; margin-top: 10px;"><br><br>
+       <mat-label style="margin-top: 10px;">Type</mat-label><br>
+       <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Home</mat-radio-button>
+        <mat-radio-button value="2">Work</mat-radio-button>
+        <mat-radio-button value="2">Other</mat-radio-button>
+      </mat-radio-group>
+        </div>
+        <mat-card-actions align="end">
+            <button mat-raised-button matStepperNext color="primary">CONTINUE</button>
+        </mat-card-actions>
+        </mat-card>
+      </ng-template>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Order Summary</ng-template>
+      <mat-card class="example-card">
+        <div class="card-content">
+          <img mat-card-image 
+          class="img" src="https://public-v2links.adobecc.com/f01e3875-2a95-4975-7ad1-9a60aa079aec/component?params=component_id%3A1b673db3-8b0b-4de3-9115-bff5b0147158&params=version%3A0&token=1677912906_da39a3ee_4b34bceb67cbcf6d55694164f4b3af6bb6292bd0&api_key=CometServer1">
+          <mat-card-title>Don't make me think</mat-card-title>
+          <mat-card-subtitle>by Steve King</mat-card-subtitle>
+          <mat-card-title>Rs. 1500</mat-card-title><br>
+         
+      </div>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" routerLink="/order">CHECKOUT</button>
+    </mat-card-actions>
+      </mat-card>
+    </mat-step>
+  </mat-stepper>
+  
+<app-footer></app-footer>
+

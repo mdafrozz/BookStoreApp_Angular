@@ -1,0 +1,15 @@
+.stepper{
+    margin-left: 8%;
+}
+::ng-deep .mat-vertical-stepper-header .mat-step-icon {
+    display: none !important;}
+    .example-card {
+        max-width: 774px;
+        background-color: #fcfcfc;
+      }
+.card-content{
+    margin-left: 30px;
+}
+::ng-deep .mat-stepper-vertical-line::before {
+    display: none;
+  }
