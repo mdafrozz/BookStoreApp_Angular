@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +22,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { CartComponent } from './cart/cart.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 
  
@@ -32,9 +39,12 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
     HomeComponent,
     CartComponent,
     OrderSuccessComponent,
+    LoginRegisterComponent,
       
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule ,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -47,7 +57,11 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
     MatGridListModule,
     MatBadgeModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatIconModule
 
   ],
   providers: [],

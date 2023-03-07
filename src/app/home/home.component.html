@@ -5,15 +5,15 @@
 </div>
 <mat-card-subtitle>({{bookCount}} Items)</mat-card-subtitle>
 <span class="example-spacer"></span>
-<select name="sort" id="sort-select" class="select">
-  <option value="">--Sort by-- &nbsp;&nbsp;&nbsp;</option>
-  <option value="relevance">Relevance</option>
-  <option value="Price">Price</option>
+<select name="sort" id="sort-select" class="select" [(ngModel)]="sortby" (change)="sort()">
+  <option value="default">-- Sort By Relevance -- &nbsp;&nbsp;</option>
+  <option value="priceLow" >Price: Low-High</option>
+  <option value="priceHigh">Price: High-Low</option>
 </select>
 </mat-toolbar>  
 
 <div class="card-wrapper">
-<mat-card class="example-card" *ngFor="let book of booksList" >
+<mat-card class="example-card" *ngFor="let book of booksList, let i = index" >
   <div class="img-bg">
     <img mat-card-image 
     class="img" src="../assets/{{book.bookImage}}">
@@ -24,8 +24,10 @@
         <mat-card-title class="ct">Rs. {{book.price}}</mat-card-title>
         </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button class="btn1" style="background-color: #A03037; color: white" (click)="addToCart(book.bookId)">ADD TO BAG</button>&nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-raised-button class="btn2">WISHLIST</button>
+      <button mat-raised-button *ngIf="!bookAdded[i]" class="btn1" style="background-color: #A03037; color: white" 
+      (click)="addToCart(book.bookId, i)">ADD TO BAG</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="primary" *ngIf="bookAdded[i]" class="btn3">ADDED TO BAG</button>
+      <button mat-raised-button  *ngIf="!bookAdded[i]" class="btn2">WISHLIST</button>
     </mat-card-actions>
   </mat-card>
 </div>

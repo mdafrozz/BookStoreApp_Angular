@@ -39,3 +39,7 @@
   background: white;
   color: #A03037;
 }
+
+.fa fa-sign-out{
+  cursor: pointer;
+}

@@ -5,13 +5,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 const routes: Routes = [
   {path:'header', component: HeaderComponent},
   {path:'footer', component: FooterComponent},
   {path:'', component: HomeComponent},
   {path:'cart', component: CartComponent },
-  {path:'order', component: OrderSuccessComponent}
+  {path:'order', component: OrderSuccessComponent},
+  {path:'login', component: LoginRegisterComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,67 @@
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;" class="title" routerLink="/">Bookstore App
+    </mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" style="color: #A03037">
+      <mat-tab label="Login" >
+        <mat-card-content>
+          <form (ngSubmit)="loginUser()">
+            <mat-form-field>
+              <input matInput placeholder="Email" required name="email" [(ngModel)]="login.email">
+              <mat-error *ngIf="">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Password" type="password" required minlength="6" name="password" [(ngModel)]="login.password">
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button class="login-button" style="background-color: #A03037; color: white">
+              Login
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+
+      <mat-tab label="Register">
+        <mat-card-content>
+          <form (ngSubmit)="register()">
+            <mat-form-field>
+              <input matInput placeholder="First Name" required name="firstname" [(ngModel)]="user.firstName" >
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="user.firstName">
+                Firstname is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" required name="lastname" [(ngModel)]="user.lastName" >
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="user.lastName">
+                Lastname is required
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <textarea matInput placeholder="Address ..." required name="address" [(ngModel)]="user.address" >
+           </textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Email" required name="email" [(ngModel)]="user.email" >
+              <mat-error *ngIf="">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Password" type="password" required minlength="6" name="password" [(ngModel)]="user.password" >
+              
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            
+            <button mat-raised-button style="background-color: #A03037; color: white" class="login-button">
+              Register
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

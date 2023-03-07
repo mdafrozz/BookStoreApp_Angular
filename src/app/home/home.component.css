@@ -42,11 +42,15 @@
   }
   .select{
     margin-right: 8%;
+    height: 20px;
   }
   .card-wrapper {
     margin-left: 7%;
     margin-right: 3%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+  }
+  .btn3{
+    width: 180px;
   }
   
