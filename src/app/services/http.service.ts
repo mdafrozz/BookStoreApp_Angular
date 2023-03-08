@@ -11,13 +11,19 @@ export class HttpService {
 
   bookUrl = "http://localhost:8080/book"
   userUrl = "http://localhost:8080/user"
+  cartUrl = "http://localhost:8080/cart"
+
 
   getBooksData(): Observable<any> {
     return this.http.get(this.bookUrl + "/getall");
   }
 
-  addItem(): Observable<any>{
-    return this.http.get(this.bookUrl + "/getall");
+  addItem(obj: any): Observable<any>{
+    return this.http.post(this.cartUrl + "/insert",obj);
+  }
+
+  getCartData(): Observable<any> {
+    return this.http.get(this.cartUrl + "/getall");
   }
 
   sortAsc(): Observable<any>{

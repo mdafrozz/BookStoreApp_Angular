@@ -4,12 +4,28 @@
 ::ng-deep .mat-vertical-stepper-header .mat-step-icon {
     display: none !important;}
     .example-card {
-        max-width: 774px;
+        max-width: 200px;
+        margin-bottom: 10px ;
         background-color: #fcfcfc;
       }
+      .card {
+        max-width: 774px;
+        margin-bottom: 20px ;
+        box-shadow: none;
+      }
 .card-content{
-    margin-left: 30px;
+    margin-left: 20px;
 }
 ::ng-deep .mat-stepper-vertical-line::before {
     display: none;
+  }
+.img{
+    margin-top: 10px;
+    height: 85px;
+    width: 90px;
+}
+.card-wrapper {
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }

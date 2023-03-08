@@ -13,7 +13,7 @@
     <mat-icon matPrefix class="fa fa-sign-out" style="font-size:24px" *ngIf="email!=undefined" (click)="logout()"></mat-icon>
     <mat-icon matPrefix class="fa fa-user-circle" routerLink="login" *ngIf="email==undefined" style="font-size:24px"></mat-icon>&nbsp;&nbsp;
     <div class="cart">
-        <div matBadge="1"  matBadgeSize="small" >
+        <div matBadge="{{cartCount}}"  matBadgeSize="small" >
             <img src="../assets/supermarket.svg" alt="logo" routerLink="cart">
         </div>
     </div>
