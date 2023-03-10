@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
   email: any;
   cart: any;
   cartCount: number = 0;
+  searchedBooks: any;
+  key: any;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private httpService: HttpService) { 
@@ -42,6 +44,16 @@ export class HeaderComponent implements OnInit {
         this.cartCount = this.cart.length;
       });
   }
+
+  searchBook(key: any) {
+    this.httpService.search(key)
+    .subscribe(data => {
+      this.searchedBooks = data.data;
+        console.log(this.searchedBooks)
+        localStorage.setItem('searchedBooks', JSON.stringify(this.searchedBooks));
+        location.reload();
+    });
+}
 
   logout(){
     localStorage.clear();

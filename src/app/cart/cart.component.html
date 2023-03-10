@@ -2,7 +2,7 @@
 <mat-stepper orientation="vertical" class="stepper" >
 
     <mat-step >
-      <ng-template matStepLabel>My Cart (1)</ng-template>
+      <ng-template matStepLabel>My Cart ({{cart.length}})</ng-template>
       <ng-template matStepContent>
 
         <div class="card-wrapper">
@@ -15,16 +15,15 @@
                 <mat-card-title>Rs.{{c.book.price}}</mat-card-title><br>
                 <div>
                     <button mat-mini-fab style="background-color: #A03037; color: white;  height:20px; width: 20px;
-                     font-size: 20px;">-</button>&nbsp;
+                     font-size: 20px;" (click)="decrement(c.cartId, c.book.bookId, c.user.userId, c.quantity)" 
+                     [disabled]="(c.quantity == 1)">-</button>&nbsp;
                     <input matInput value="{{c.quantity}}" style="width:20px; height: 15px; text-align: center;">&nbsp;
                     <button mat-mini-fab style="background-color: #A03037; color: white;  height:20px; width: 20px;
-                     font-size: 15px;">+</button>&nbsp;
-                    <button mat-button>Remove</button>
+                     font-size: 15px;" (click)="increment(c.cartId, c.book.bookId, c.user.userId, c.quantity)">+</button>&nbsp;
+                    <button mat-button (click)="remove(c.cartId)">Remove</button>
                 </div>
             </div>
-            <mat-card-title>&nbsp;&nbsp;Total : {{c.book.price*c.quantity }}</mat-card-title>
-
-        </mat-card>
+          </mat-card>
         </div>
         <mat-card class="card" >
         <mat-card-actions align="end">
@@ -47,10 +46,10 @@
        <input matInput value="City/Town" style="width:251px; height: 45px;">&nbsp; &nbsp;
        <input matInput value="Landmark" style="width:251px; height: 45px; margin-top: 10px;"><br><br>
        <mat-label style="margin-top: 10px;">Type</mat-label><br>
-       <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">Home</mat-radio-button>
+       <mat-radio-group aria-label="Select an option" color="primary">
+        <mat-radio-button value="1" [checked]='true'>Home</mat-radio-button>
         <mat-radio-button value="2">Work</mat-radio-button>
-        <mat-radio-button value="2">Other</mat-radio-button>
+        <mat-radio-button value="3">Other</mat-radio-button>
       </mat-radio-group>
         </div>
         <mat-card-actions align="end">
@@ -75,11 +74,10 @@
     </div>
       <mat-card class="card" >
         <mat-card-actions align="end">
-          <button mat-raised-button color="primary" routerLink="/order">CHECKOUT</button>
+          <button mat-raised-button color="primary" (click)="placeOrder()" >CHECKOUT</button>
       </mat-card-actions>
       </mat-card>
     </mat-step>
   </mat-stepper>
   
 <app-footer></app-footer>
-

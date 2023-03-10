@@ -6,15 +6,17 @@
     </div>&nbsp;
     <div class="logo-txt" routerLink="/">Bookstore</div>
     <span class="example-spacer"></span>
-    <input matInput type="search" placeholder=" Search here..." class="search-input">&nbsp;
-    <mat-icon matPrefix class="fa fa-search"></mat-icon>
+    <div >
+    <input matInput type="search" placeholder=" Search here..." class="search-input"  name="key" [(ngModel)]="key">&nbsp;
+    <mat-icon matPrefix class="fa fa-search" (click)="searchBook(key)"></mat-icon>
+    </div>
     <span class="example-spacer"></span>
     <span *ngIf="email!=undefined">Hi, {{user.firstName}}</span>&nbsp;&nbsp;
     <mat-icon matPrefix class="fa fa-sign-out" style="font-size:24px" *ngIf="email!=undefined" (click)="logout()"></mat-icon>
-    <mat-icon matPrefix class="fa fa-user-circle" routerLink="login" *ngIf="email==undefined" style="font-size:24px"></mat-icon>&nbsp;&nbsp;
+    <mat-icon matPrefix class="fa fa-user-circle" routerLink="/login" *ngIf="email==undefined" style="font-size:24px"></mat-icon>&nbsp;&nbsp;
     <div class="cart">
         <div matBadge="{{cartCount}}"  matBadgeSize="small" >
-            <img src="../assets/supermarket.svg" alt="logo" routerLink="cart">
+            <img src="../assets/supermarket.svg" alt="logo" routerLink="/cart">
         </div>
     </div>
   </mat-toolbar>

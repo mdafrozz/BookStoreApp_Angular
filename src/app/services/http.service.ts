@@ -12,6 +12,7 @@ export class HttpService {
   bookUrl = "http://localhost:8080/book"
   userUrl = "http://localhost:8080/user"
   cartUrl = "http://localhost:8080/cart"
+  orderUrl = "http://localhost:8080/orders"
 
 
   getBooksData(): Observable<any> {
@@ -24,6 +25,22 @@ export class HttpService {
 
   getCartData(): Observable<any> {
     return this.http.get(this.cartUrl + "/getall");
+  }
+
+  updateCartData(cartId: any, obj: any): Observable<any> {
+    return this.http.put(this.cartUrl + `/updateby/${cartId}`,obj);
+  }
+
+  removeItem(cartId: any): Observable<any> {
+    return this.http.delete(this.cartUrl + `/delete/${cartId}`);
+  }
+
+  addOrder(Id: number): Observable<any> {
+    return this.http.post(this.orderUrl + `/add/${Id}`,{});
+  }
+
+  search(key: any): Observable<any>{
+    return this.http.get(this.bookUrl + `/searchby/${key}`);
   }
 
   sortAsc(): Observable<any>{
