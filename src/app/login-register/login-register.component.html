@@ -1,18 +1,20 @@
 <div class="login-page">
   <mat-card class="mat-elevation-z12">
-    <mat-card-title style="text-align:center;" class="title" routerLink="/">Bookstore App
+    <mat-card-title style="text-align:center; cursor: pointer;" class="title" routerLink="/">Bookstore App
     </mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" style="color: #A03037">
-      <mat-tab label="Login" >
+      <mat-tab label="Login">
         <mat-card-content>
           <form (ngSubmit)="loginUser()">
             <mat-form-field>
               <input matInput placeholder="Email" required name="email" [(ngModel)]="login.email">
-              <mat-error *ngIf="">Email is required</mat-error>
+              <mat-error>*Email is required</mat-error>
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Password" type="password" required minlength="6" name="password" [(ngModel)]="login.password">
+              <input matInput placeholder="Password" type="password" required minlength="6" name="password"
+                [(ngModel)]="login.password">
+              <mat-error>*Password is required</mat-error>
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
             <button mat-raised-button class="login-button" style="background-color: #A03037; color: white">
@@ -26,36 +28,75 @@
         <mat-card-content>
           <form (ngSubmit)="register()">
             <mat-form-field>
-              <input matInput placeholder="First Name" required name="firstname" [(ngModel)]="user.firstName" >
+              <input matInput placeholder="First Name" required name="firstname" [(ngModel)]="user.firstName"
+                #name="ngModel" minlength="4" pattern="^[A-Z]{1}[a-zA-Z\\s]{2,}$">
+                <mat-error>
+                  *First Name is required.
+                </mat-error>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">                  
+                  <div *ngIf="name.errors?.['minlength']">
+                   First Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="name.errors?.['pattern']">
+                    First Letter Should be in Upper Case.
+                  </div>
+                </div>
               <mat-icon matSuffix>perm_identity</mat-icon>
-              <mat-error *ngIf="user.firstName">
-                Firstname is required
-              </mat-error>
             </mat-form-field>
+            
+
             <mat-form-field>
-              <input matInput placeholder="Last Name" required name="lastname" [(ngModel)]="user.lastName" >
+              <input matInput placeholder="Last Name" required name="lastname" [(ngModel)]="user.lastName" #lastName="ngModel" minlength="4"
+               pattern="^[A-Z]{1}[a-zA-Z]{1,}$">
               <mat-icon matSuffix>perm_identity</mat-icon>
-              <mat-error *ngIf="user.lastName">
-                Lastname is required
+              <mat-error>
+                *Last Name is required.
               </mat-error>
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+                <div *ngIf="lastName.errors?.['pattern']">
+                  First Letter Should be in Upper Case.
+                </div>
+                <div *ngIf="lastName.errors?.['minlength']">
+                 Last Name must be at least 4 characters long.
+                </div>
+              </div>
             </mat-form-field>
 
             <mat-form-field>
-              <textarea matInput placeholder="Address ..." required name="address" [(ngModel)]="user.address" >
+              <textarea matInput placeholder="Address ..." required name="address" [(ngModel)]="user.address">
            </textarea>
+           <mat-error>
+            *Address is required.
+          </mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Email" required name="email" [(ngModel)]="user.email" >
-              <mat-error *ngIf="">Email is required</mat-error>
+              <input matInput type="email" placeholder="Email" required name="email" [(ngModel)]="user.email" ngModel
+               [email]="true" #email="ngModel">
+               <mat-error>
+                *Please enter a valid email-id
+              </mat-error>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert"> 
+              </div>
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Password" type="password" required minlength="6" name="password" [(ngModel)]="user.password" >
-              
+              <input matInput placeholder="Password" type="password" required minlength="8" name="password" #password="ngModel"
+                [(ngModel)]="user.password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*()-+=])([a-zA-Z0-9@._-]).{8,}$">
+                <mat-error>
+                  *Password is required.
+                </mat-error>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">                 
+                  <div *ngIf="password.errors?.['pattern']">
+                    1.Must have atleast one upper case character<br>
+                    2.Must contain atleast one numeric value<br>
+                    3.Must contain a special symbol <br>
+                    4.Must have one lower case character 
+                  </div>
+                </div>
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
-            
+
             <button mat-raised-button style="background-color: #A03037; color: white" class="login-button">
               Register
             </button>

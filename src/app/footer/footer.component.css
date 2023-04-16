@@ -4,6 +4,15 @@
     color: #fff;
   }
   .txt{
-    margin-left: 8%;
-    font: normal normal 12px Roboto;
+    margin-left: 30%;
+    font: normal normal 14px Roboto;
+  }
+  @media screen and (max-width: 600px) {
+    .mat-toolbar{
+      width: 100%;
+    }
+    .txt{
+      width: 100%;
+      font: normal normal 9px Roboto;
+    }
   }

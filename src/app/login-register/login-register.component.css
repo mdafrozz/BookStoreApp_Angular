@@ -17,6 +17,8 @@
     margin-top: 5%;
     margin-left: 35%;
     border-radius: 8px;
+    max-height: 600px;
+    overflow-y: auto;
   }
   mat-form-field, mat-checkbox {
     width: 80%;
@@ -36,4 +38,17 @@
   .title{
     margin-top: 20px;
   }
-  
+  @media screen and (max-width: 600px) {
+    .login-page{
+      float: none;
+      width: 100%;
+    }
+    .mat-elevation-z12{
+      float: none;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 20%;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+  }

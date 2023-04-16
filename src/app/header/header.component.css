@@ -40,6 +40,22 @@
   color: #A03037;
 }
 
-.fa fa-sign-out{
-  cursor: pointer;
+
+@media screen and (max-width: 600px) {
+  .mat-toolbar{
+   float: none;
+   width: 100%;
+  }
+ 
+  .logo-txt{
+font-size: 14px;  }
+.logo-content{
+  margin-left: 2%;
+}
+.cart{
+  margin-right: 2%;
+}
+.user{
+  font-size: 10px;
+}
 }

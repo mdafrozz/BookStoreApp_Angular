@@ -53,4 +53,34 @@
   .btn3{
     width: 180px;
   }
-  
+  @media screen and (max-width: 600px) {
+   .mat-toolbar{
+    float: none;
+    width: 100%;
+   }
+   .card-wrapper{
+    float: none;
+    width: 100%;
+   }
+   .example-card{
+    float: none;
+    width: 100%;
+   }
+   .img-bg{
+    float: none;
+    width: 100%;
+   }
+   .mat-card{
+      float: none;
+      width: 100%;
+   }
+   .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .mat-toolbar{
+    float: none;
+    width: 30%;
+  }
+
+  }

@@ -1,6 +1,13 @@
 <app-header></app-header>
+<div *ngIf="(cartCount == 0)">
+  <img mat-card-image  style="height: 400px; width: 400px; margin-top: 30px; margin-left: 30%;"
+   src="../assets/empty-cart-png.png">
+   <h1 style="margin-left: 25%; margin-top: 40px; font-size: 48px; font-weight: 500;" *ngIf="(cartCount == 0)"
+   >Sorry no items in your cart..!!</h1>
+   <button mat-raised-button  style="margin-left: 40%; margin-top: 30px;" color="primary" routerLink="/">CONTINUE SHOPPING</button>
+   <app-footer></app-footer>
+</div>
 <mat-stepper orientation="vertical" class="stepper" >
-
     <mat-step >
       <ng-template matStepLabel>My Cart ({{cart.length}})</ng-template>
       <ng-template matStepContent>
@@ -33,24 +40,15 @@
       </ng-template>
     </mat-step>
 
-    <mat-step>
+    <mat-step >
       <ng-template matStepLabel>Customer Details</ng-template>
       <ng-template matStepContent>
-        <mat-card class="card">
+        <mat-card class="card" >
         <div class="card-content">
-        <input matInput value="Name" style="width:251px; height: 45px;">&nbsp; &nbsp;
-       <input matInput value="PhoneNumber" style="width:251px; height: 45px;"><br>
-       <input matInput value="Pincode" style="width:251px; height: 45px; margin-top: 10px;">&nbsp; &nbsp;
-       <input matInput value="Locality" style="width:251px; height: 45px; margin-top: 10px;"><br>
-       <textarea matInput placeholder="Address"style="width:525px; height: 82px; margin-top: 10px;"></textarea><br>
-       <input matInput value="City/Town" style="width:251px; height: 45px;">&nbsp; &nbsp;
-       <input matInput value="Landmark" style="width:251px; height: 45px; margin-top: 10px;"><br><br>
-       <mat-label style="margin-top: 10px;">Type</mat-label><br>
-       <mat-radio-group aria-label="Select an option" color="primary">
-        <mat-radio-button value="1" [checked]='true'>Home</mat-radio-button>
-        <mat-radio-button value="2">Work</mat-radio-button>
-        <mat-radio-button value="3">Other</mat-radio-button>
-      </mat-radio-group>
+          <mat-card-title >First Name: {{users.firstName}} </mat-card-title>
+          <mat-card-title> Last Name: {{users.lastName}}</mat-card-title>
+          <mat-card-title >Address: {{users.address}}</mat-card-title>
+          <mat-card-title> Email: {{users.email}}</mat-card-title>
         </div>
         <mat-card-actions align="end">
             <button mat-raised-button matStepperNext color="primary">CONTINUE</button>

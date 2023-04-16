@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../services/http.service';
 import { Cart } from '../model/cart.model';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +11,10 @@ import { Cart } from '../model/cart.model';
 })
 export class CartComponent {
 
+  public users: User = new User;
+
+  cartCount: number = 0;
   cart: any;
-  user: any;
   quantity: any;
   orderData: any[] =[];
   public cartModel: Cart = new Cart(); 
@@ -29,16 +32,16 @@ export class CartComponent {
     getUser(){
       this.httpService.getUser(localStorage.getItem('email'))
         .subscribe(data => {
-          console.log("Header",data.data.firstName);
-          this.user = data.data;
+          this.users = data.data
+          console.log(this.users.firstName)
         });
     }
   
     getCart(){
       this.httpService.getCartData()
         .subscribe(data => {
-          console.log(data.data);
           this.cart = data.data;
+          this.cartCount = this.cart.length
         });
     }
 
@@ -64,10 +67,9 @@ export class CartComponent {
       this.cartModel.quantity = qty;
       this.httpService.updateCartData(cartId,this.cartModel)
         .subscribe(data => {
-          console.log(data.data);
-          this.cart = data.data;
-          window.location.reload()
-        });
+        this.cart = data.data;
+        this.ngOnInit();
+      });
     }
 
     remove(cartId: any){
@@ -85,17 +87,15 @@ export class CartComponent {
     }
 
     placeOrder(){
-      console.log(this.user)
-      if(this.user == undefined){
+      if(this.users == undefined){
         this.router.navigate(['login']);
       }
       else{
-      this.httpService.addOrder(this.user.userId)
+      this.httpService.addOrder(this.users.userId)
       .subscribe(data => {
         console.log(data.data);
         this.orderData = data.data
         localStorage.setItem('orderData', JSON.stringify(this.orderData));
-        console.log(localStorage.getItem('orderData'))
         this.router.navigate(['order']);
       });
     }

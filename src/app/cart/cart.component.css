@@ -32,3 +32,22 @@
   .img-bg{
     background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.05));
   }
+
+  @media screen and (max-width: 600px) {
+  .stepper{
+    float: none;
+    width: 100%;
+  }
+  .card-wrapper{
+    float: none;
+    width: 100%;
+   }
+   .example-card{
+    float: none;
+    width: 200px;
+   }
+   .card-content{
+    float: none;
+    width: 100%;
+   }
+  }

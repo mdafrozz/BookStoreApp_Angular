@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../model/cart.model';
 import { User } from '../model/user.model';
 import { HttpService } from '../services/http.service';
+import { GlobalSearchServiceService } from '../services/global-search-service.service';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +19,12 @@ export class HeaderComponent implements OnInit {
   searchedBooks: any;
   key: any;
 
+  hasRoute(route: string) {
+    return this.router.url.includes(route);
+  }
+  
   constructor(private route: ActivatedRoute,private router: Router,
-    private httpService: HttpService) { 
+    private httpService: HttpService, private globalSearchService: GlobalSearchServiceService) { 
     }
 
   ngOnInit() {
@@ -31,7 +36,6 @@ export class HeaderComponent implements OnInit {
     this.email= localStorage.getItem('email');
     this.httpService.getUser(this.email)
       .subscribe(data => {
-        console.log("Header",data.data.firstName);
         this.user = data.data;
       });
   }
@@ -39,20 +43,14 @@ export class HeaderComponent implements OnInit {
   getCart(){
     this.httpService.getCartData()
       .subscribe(data => {
-        console.log(data.data);
         this.cart = data.data;
         this.cartCount = this.cart.length;
       });
   }
 
-  searchBook(key: any) {
-    this.httpService.search(key)
-    .subscribe(data => {
-      this.searchedBooks = data.data;
-        console.log(this.searchedBooks)
-        localStorage.setItem('searchedBooks', JSON.stringify(this.searchedBooks));
-        location.reload();
-    });
+public onInput(event: any){
+  // this pushes the input value into the service's Observable.
+  this.globalSearchService.searchTerm.next(event.target.value);
 }
 
   logout(){
